@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import { User } from './users/entities/user.entity';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { RolesModule } from './roles/roles.module';
+import { Role } from './roles/entities/role.entity';
 
 @Module({
   imports: [
@@ -18,9 +20,10 @@ import { AuthModule } from './auth/auth.module';
       password: '1234',
       database: 'nest-db',
       synchronize: true,
-      entities: [User],
+      entities: [User, Role],
     }),
     AuthModule,
+    RolesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
