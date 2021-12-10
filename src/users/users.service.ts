@@ -35,7 +35,7 @@ export class UsersService {
   }
 
   async findUser(username: string): Promise<User> {
-    const users = await this.userRepository.find();
+    const users = await this.userRepository.find({ relations: ['roles'] });
     return users.find((user) => user.username === username);
   }
 
