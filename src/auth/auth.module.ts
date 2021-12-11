@@ -5,10 +5,10 @@ import { UsersModule } from 'src/users/users.module';
 import { AuthService } from './auth.service';
 import { jwtConstants } from './constants';
 import { LocalStrategy } from './local.strategy';
-import { AuthController } from './auth.controller';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
-  providers: [AuthService, LocalStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
   imports: [
     UsersModule,
     PassportModule,
@@ -18,6 +18,5 @@ import { AuthController } from './auth.controller';
     }),
   ],
   exports: [AuthService],
-  controllers: [AuthController],
 })
 export class AuthModule {}
